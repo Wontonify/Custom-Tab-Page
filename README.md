@@ -43,9 +43,4 @@ Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/de
 which builds and publishes to GitHub Pages.
 
 The build needs the API key too — add `VITE_NASA_API_KEY` under **Settings →
-Secrets and variables → Actions**, or the live site ships with an empty key and
-every request fails.
-
-> Note: `VITE_`-prefixed variables are bundled into the client JavaScript and are
-> readable by anyone. That's fine for a rate-limited NASA key, but never put a
-> private or paid API key in one.
+Secrets and variables → Actions**, or the live site ships with an empty key and every request fails.
