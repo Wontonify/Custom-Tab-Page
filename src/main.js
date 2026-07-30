@@ -13,7 +13,7 @@ const input = form.querySelector('input');
 const toggle = document.querySelector('#engine-toggle');
 const label = document.querySelector('#engine-label');
 const menu = document.querySelector('#engine-menu');
-
+ 
 menu.innerHTML = Object.entries(ENGINES)
   .map(([key, engine]) => `<li role="option" tabindex="-1" data-key="${key}">${engine.label}</li>`)
   .join('');
@@ -85,14 +85,22 @@ async function getAPOD() {
   return res.json();
 }
 
+function showImage(url) {
+  document.documentElement.style.setProperty('--apod', `url("${url}")`);
+  document.body.classList.add('has-apod');
+}
+
+const cached = localStorage.getItem('apod-url');
+if (cached) showImage(cached);
+
 getAPOD()
   .then(data => {
     if (data.media_type !== 'image') return;
 
-    document.documentElement.style.setProperty(
-      '--apod',
-      `url("${data.hdurl || data.url}")`
-    );
-    document.body.classList.add('has-apod');
+    const url = data.hdurl || data.url;
+    if (url === cached) return;
+
+    localStorage.setItem('apod-url', url);
+    showImage(url);
   })
   .catch(err => console.error(err));

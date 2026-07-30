@@ -56,6 +56,7 @@ body.has-apod {
   --menu-hover: rgba(255, 255, 255, 0.2);
   --menu-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 
+  background-color: #16171d;
   background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
     var(--apod);
   background-size: cover;
