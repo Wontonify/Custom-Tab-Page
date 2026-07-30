@@ -3,6 +3,9 @@
 A custom browser new-tab page, built with [Vite](https://vite.dev). Uses NASA's
 [Astronomy Picture of the Day](https://api.nasa.gov) as a daily background.
 
+## Test
+Visit https://wontonify.github.io/Custom-Tab-Page/
+
 ## Setup
 
 ```bash
